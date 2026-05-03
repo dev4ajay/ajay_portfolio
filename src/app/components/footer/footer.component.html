@@ -53,7 +53,7 @@
                      dark:from-violet-400 dark:via-pink-400 dark:to-teal-300
                      bg-clip-text text-transparent
                      animate-gradient-x">
-            Ajay Kumar
+            Ajay Pabriya
           </h2>
         </div>
 
@@ -181,7 +181,7 @@
                      bg-gradient-to-r from-violet-600 to-pink-500
                      dark:from-violet-400 dark:to-pink-400
                      bg-clip-text text-transparent">
-          Ajay Kumar
+          Ajay Pabriya
         </span>.
         All rights reserved.
       </p>
@@ -196,24 +196,92 @@
       </p>
 
       <!-- Back to top -->
-      <button
-        (click)="scrollToTop()"
-        class="group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold
-               border border-slate-200 text-slate-500
-               dark:border-white/10 dark:text-slate-500
-               hover:border-violet-400 hover:text-violet-600
-               dark:hover:border-violet-500/50 dark:hover:text-violet-300
-               hover:-translate-y-0.5 hover:shadow-md hover:shadow-violet-100
-               dark:hover:shadow-violet-900/30
-               transition-all duration-300">
-        <span class="group-hover:-translate-y-0.5 transition-transform duration-300 inline-block">
-          ↑
-        </span>
-     
-      </button>
+  <button
+  (click)="scrollToTop()"
+  class="group flex items-center gap-2 px-4 py-3   font-semibold
+         border border-slate-200 text-gray-50 bg-gray-500 
+         dark:border-white/10 dark:text-slate-500 
+         hover:border-violet-400 hover:text-violet-600
+         dark:hover:border-violet-500/50 dark:hover:text-violet-300
+         hover:-translate-y-0.5 hover:shadow-md hover:shadow-violet-100
+         dark:hover:shadow-violet-900/30
+         transition-all duration-300">
+
+  <!-- Animated SVG Icon -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="10" height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    class="transition-all duration-300 group-hover:-translate-y-0.5">
+
+    <!-- Animated arrow shaft — draws upward on hover -->
+    <line
+      x1="7" y1="12"
+      x2="7" y2="3"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      class="origin-bottom"
+      style="
+        stroke-dasharray: 9;
+        stroke-dashoffset: 9;
+        transition: stroke-dashoffset 0.35s cubic-bezier(0.4,0,0.2,1);
+      "/>
+
+    <!-- Arrowhead left leg -->
+    <line
+      x1="3.5" y1="6.2"
+      x2="7" y2="2.8"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      style="
+        stroke-dasharray: 5;
+        stroke-dashoffset: 5;
+        transition: stroke-dashoffset 0.28s cubic-bezier(0.4,0,0.2,1) 0.12s;
+      "/>
+
+    <!-- Arrowhead right leg -->
+    <line
+      x1="10.5" y1="6.2"
+      x2="7" y2="2.8"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      style="
+        stroke-dasharray: 5;
+        stroke-dashoffset: 5;
+        transition: stroke-dashoffset 0.28s cubic-bezier(0.4,0,0.2,1) 0.12s;
+      "/>
+
+    <!-- Baseline dot — fades out on hover -->
+    <circle
+      cx="7" cy="12"
+      r="1"
+      fill="currentColor"
+      style="
+        opacity: 1;
+        transition: opacity 0.2s ease;
+      "/>
+  </svg>
+
+
+
+</button>
+
+
 
     </div>
 
   </div>
 
 </footer>
+<style>
+  button svg line {
+    stroke-dashoffset: 0 !important;
+  }
+  button svg circle {
+    opacity: 0 !important;
+  }
+</style>
