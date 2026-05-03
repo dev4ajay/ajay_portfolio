@@ -1,0 +1,25 @@
+/* navbar.component.css
+   Custom keyframes only — layout/colors use Tailwind dark: classes.
+   ThemeService toggles <html class="dark"> — all dark: variants work automatically.
+*/
+
+/* ── Gradient text / button shift ── */
+@keyframes gradientX {
+  0%, 100% { background-position: 0%   50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradientX 5s ease infinite;
+}
+
+/* ── Mobile menu slide down ── */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.25s ease forwards;
+}

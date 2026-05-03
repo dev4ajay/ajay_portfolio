@@ -1,0 +1,219 @@
+<footer
+  class="relative overflow-hidden
+         bg-slate-50 dark:bg-gray-800
+         text-slate-600 dark:text-slate-400
+         transition-colors duration-500"
+>
+
+  <!-- ── Animated Background Orbs ── -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute -top-24 -left-24 w-80 h-80 rounded-full
+                bg-violet-400 opacity-10 dark:opacity-20
+                blur-[100px] animate-orb-1"></div>
+    <div class="absolute -bottom-20 -right-20 w-72 h-72 rounded-full
+                bg-pink-400 opacity-10 dark:opacity-20
+                blur-[90px] animate-orb-2"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                w-96 h-40 rounded-full
+                bg-teal-400 opacity-5 dark:opacity-10
+                blur-[80px] animate-orb-3"></div>
+  </div>
+
+  <!-- ── Grid Dot Pattern ── -->
+  <div class="pointer-events-none absolute inset-0
+              opacity-[0.03] dark:opacity-[0.06]
+              [background-image:radial-gradient(circle,#6C63FF_1px,transparent_1px)]
+              [background-size:28px_28px]">
+  </div>
+
+  <!-- ── Top Gradient Line ── -->
+  <div class="h-px w-full
+              bg-gradient-to-r from-transparent via-violet-500/60 to-transparent
+              dark:via-violet-400/50 animate-gradient-x">
+  </div>
+
+  <!-- ── Main Content ── -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 pt-14 pb-10">
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <!-- ── LEFT: Brand ── -->
+      <div class="animate-fade-up">
+
+        <!-- Logo / Name -->
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center
+                      bg-gradient-to-br from-violet-600 to-pink-500
+                      shadow-lg shadow-violet-500/30 dark:shadow-violet-500/20
+                      text-white font-black text-lg select-none">
+            A
+          </div>
+          <h2 class="text-xl font-black
+                     bg-gradient-to-r from-violet-600 via-pink-500 to-teal-500
+                     dark:from-violet-400 dark:via-pink-400 dark:to-teal-300
+                     bg-clip-text text-transparent
+                     animate-gradient-x">
+            Ajay Kumar
+          </h2>
+        </div>
+
+        <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400
+                  transition-colors duration-500 max-w-xs">
+          Full Stack Developer specializing in
+          <span class="text-violet-600 dark:text-violet-400 font-medium">Angular</span>,
+          <span class="text-pink-600 dark:text-pink-400 font-medium">React</span>,
+          <span class="text-teal-600 dark:text-teal-400 font-medium">Next.js</span> &
+          <span class="text-amber-600 dark:text-amber-400 font-medium">Node.js</span>.
+          Building scalable, high-performance web apps.
+        </p>
+
+        <!-- Tech badges -->
+        <div class="flex flex-wrap gap-2 mt-5">
+          <span *ngFor="let tech of techStack"
+                class="px-3 py-1 rounded-full text-xs font-semibold
+                       bg-slate-100 text-slate-500 border border-slate-200
+                       dark:bg-white/5 dark:text-slate-400 dark:border-white/10
+                       hover:border-violet-400 hover:text-violet-600
+                       dark:hover:border-violet-500/50 dark:hover:text-violet-300
+                       transition-all duration-300 cursor-default">
+            {{ tech }}
+          </span>
+        </div>
+
+      </div>
+
+      <!-- ── CENTER: Quick Links ── -->
+      <div class="animate-fade-up-delay">
+
+        <h3 class="text-sm font-black uppercase tracking-widest mb-5
+                   text-slate-400 dark:text-slate-500 transition-colors duration-500">
+          Quick Links
+        </h3>
+
+        <ul class="space-y-3">
+          <li *ngFor="let link of quickLinks">
+            <a [href]="link.href"
+               class="group flex items-center gap-3 text-sm font-medium
+                      text-slate-600 dark:text-slate-400
+                      hover:text-violet-600 dark:hover:text-violet-300
+                      transition-all duration-300">
+              <!-- Arrow indicator -->
+              <span class="w-5 h-px bg-slate-300 dark:bg-slate-600
+                           group-hover:w-8 group-hover:bg-violet-500
+                           dark:group-hover:bg-violet-400
+                           transition-all duration-300 inline-block">
+              </span>
+              {{ link.label }}
+              <span class="opacity-0 group-hover:opacity-100 -translate-x-2
+                           group-hover:translate-x-0 transition-all duration-300
+                           text-violet-500 text-xs">
+                →
+              </span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- ── RIGHT: Contact ── -->
+      <div class="animate-fade-up-delay2">
+
+        <h3 class="text-sm font-black uppercase tracking-widest mb-5
+                   text-slate-400 dark:text-slate-500 transition-colors duration-500">
+          Contact
+        </h3>
+
+        <!-- Info items -->
+        <div class="space-y-3 mb-6">
+          <div *ngFor="let info of contactInfo"
+               class="flex items-center gap-3 text-sm group">
+            <span class="w-8 h-8 rounded-lg flex items-center justify-center text-base
+                         bg-slate-100 border border-slate-200
+                         dark:bg-white/5 dark:border-white/10
+                         group-hover:border-violet-300 dark:group-hover:border-violet-500/40
+                         group-hover:bg-violet-50 dark:group-hover:bg-violet-500/10
+                         transition-all duration-300 shrink-0">
+              {{ info.icon }}
+            </span>
+            <span class="text-slate-600 dark:text-slate-400
+                         group-hover:text-slate-800 dark:group-hover:text-slate-200
+                         transition-colors duration-300">
+              {{ info.value }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex gap-3">
+          <a *ngFor="let social of socials"
+             [href]="social.href"
+             [title]="social.label"
+             class="w-10 h-10 rounded-xl flex items-center justify-center text-base
+                    border border-slate-200 bg-white text-slate-600
+                    dark:border-white/10 dark:bg-white/5 dark:text-slate-400
+                    hover:-translate-y-1 hover:shadow-lg
+                    transition-all duration-300"
+             [ngClass]="social.hoverClass">
+            {{ social.icon }}
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ── Divider ── -->
+    <div class="relative my-10">
+      <div class="h-px bg-gradient-to-r
+                  from-transparent via-slate-300 to-transparent
+                  dark:via-white/10 transition-colors duration-500">
+      </div>
+    </div>
+
+    <!-- ── Bottom Bar ── -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4
+                animate-fade-up-delay3">
+
+      <!-- Copyright -->
+      <p class="text-xs text-slate-400 dark:text-slate-600 transition-colors duration-500">
+        © {{ currentYear }}
+        <span class="font-bold
+                     bg-gradient-to-r from-violet-600 to-pink-500
+                     dark:from-violet-400 dark:to-pink-400
+                     bg-clip-text text-transparent">
+          Ajay Kumar
+        </span>.
+        All rights reserved.
+      </p>
+
+      <!-- Made with love -->
+      <p class="text-xs text-slate-400 dark:text-slate-600
+                flex items-center gap-1.5 transition-colors duration-500">
+        Crafted with
+        <span class="text-pink-500 animate-heartbeat text-sm">♥</span>
+        in
+        <span class="font-semibold text-slate-500 dark:text-slate-400">India 🇮🇳</span>
+      </p>
+
+      <!-- Back to top -->
+      <button
+        (click)="scrollToTop()"
+        class="group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold
+               border border-slate-200 text-slate-500
+               dark:border-white/10 dark:text-slate-500
+               hover:border-violet-400 hover:text-violet-600
+               dark:hover:border-violet-500/50 dark:hover:text-violet-300
+               hover:-translate-y-0.5 hover:shadow-md hover:shadow-violet-100
+               dark:hover:shadow-violet-900/30
+               transition-all duration-300">
+        <span class="group-hover:-translate-y-0.5 transition-transform duration-300 inline-block">
+          ↑
+        </span>
+     
+      </button>
+
+    </div>
+
+  </div>
+
+</footer>

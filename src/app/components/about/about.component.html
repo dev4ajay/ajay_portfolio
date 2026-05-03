@@ -1,0 +1,214 @@
+<section id="about"
+  class="relative overflow-hidden px-8 py-24
+         bg-gray-50 dark:bg-gray-900 dark:text-gray-400
+         transition-colors duration-500">
+
+  <!-- Orbs -->
+  <div class="absolute -top-20 -right-16 w-80 h-80 rounded-full pointer-events-none
+              bg-[radial-gradient(circle,rgba(124,58,237,0.10),transparent_70%)]
+              dark:bg-[radial-gradient(circle,rgba(124,58,237,0.18),transparent_70%)]">
+  </div>
+  <div class="absolute -bottom-10 -left-10 w-60 h-60 rounded-full pointer-events-none
+              bg-[radial-gradient(circle,rgba(219,39,119,0.07),transparent_70%)]
+              dark:bg-[radial-gradient(circle,rgba(219,39,119,0.13),transparent_70%)]">
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto
+              grid grid-cols-1 md:grid-cols-[1fr_1.3fr] gap-10 md:gap-16 items-center">
+
+    <!-- ── LEFT ── -->
+    <div class="order-2 md:order-1">
+
+      <!-- Tag -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full mb-5
+                  text-[11.5px] font-semibold uppercase tracking-widest
+                  bg-violet-50  border-violet-200 text-violet-600
+                  dark:bg-violet-500/8 dark:border-violet-500/20 dark:text-violet-400
+                  transition-colors duration-500">
+        <span class="w-1.5 h-1.5 rounded-full bg-violet-500 dark:bg-violet-400"></span>
+        About Me
+      </div>
+
+      <!-- Title -->
+      <h2 class="font-extrabold leading-[1.15] tracking-tight mb-2
+                 text-slate-800 dark:text-white
+                 text-3xl md:text-[40px]
+                 transition-colors duration-500">
+        Crafting
+        <span class="bg-gradient-to-br from-violet-500 to-pink-500
+                     dark:from-violet-400 dark:to-pink-400
+                     bg-clip-text text-transparent [background-size:200%] animate-shimmer">
+          Digital
+        </span><br>Experiences
+      </h2>
+
+      <!-- Divider -->
+      <div class="w-12 h-0.5 rounded-full mb-5
+                  bg-gradient-to-r from-violet-600 to-pink-600
+                  dark:from-violet-500 dark:to-pink-500">
+      </div>
+
+      <!-- Description -->
+      <p class="text-sm leading-[1.85] mb-6
+                text-slate-500 dark:text-white/45
+                transition-colors duration-500">
+        I am <strong class="font-semibold text-violet-600 dark:text-violet-400">Ajay Kumar</strong>,
+        a passionate Full Stack Developer with
+        <strong class="font-semibold text-violet-600 dark:text-violet-400">2+ years</strong>
+        of experience building scalable, high-performance web apps. I specialize in
+        <strong class="font-semibold text-violet-600 dark:text-violet-400">Angular, React, Next.js & Node.js</strong>
+        with a strong eye for clean UI design.
+      </p>
+
+      <!-- Highlight Cards -->
+      <div class="grid grid-cols-2 gap-2.5 mb-7">
+        <div *ngFor="let h of highlights"
+             class="flex items-start gap-2.5 p-3.5 rounded-2xl cursor-default
+                    transition-all duration-300
+                    bg-slate-50 
+                    hover:bg-violet-50 hover:border-violet-200 hover:-translate-y-0.5
+                   dark:bg-gray-800 dark:text-violet-500
+                    dark:hover:bg-violet-500/8 dark:hover:border-violet-500/25">
+
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm flex-shrink-0"
+               [ngClass]="{
+                 'bg-violet-100 dark:bg-violet-500/15': h.color === 'purple',
+                 'bg-pink-100 dark:bg-pink-500/15':    h.color === 'pink',
+                 'bg-blue-100 dark:bg-blue-500/15':    h.color === 'blue',
+                 'bg-teal-100 dark:bg-teal-500/15':    h.color === 'teal'
+               }">
+            {{ h.icon }}
+          </div>
+
+          <div>
+            <h4 class="text-[13px] font-semibold mb-0.5
+                       text-slate-700 dark:text-white
+                       transition-colors duration-500">
+              {{ h.title }}
+            </h4>
+            <p class="text-[11.5px]
+                      text-slate-400 dark:text-white/35
+                      transition-colors duration-500">
+              {{ h.sub }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex flex-wrap gap-2.5">
+        <button class="px-5 py-2.5 rounded-xl text-[13px] font-semibold text-white
+                       bg-gradient-to-br from-violet-600 to-pink-600
+                       hover:-translate-y-0.5 hover:shadow-lg hover:shadow-violet-500/30
+                       active:scale-[.97] transition-all duration-250">
+          ↓ Download Resume
+        </button>
+        <button (click)="scrollToContact()"
+                class="px-5 py-2.5 rounded-xl text-[13px] font-medium
+                     transition-all duration-250
+                       text-slate-600  bg-gray-50
+                       hover:border-violet-300 hover:text-violet-600 hover:bg-violet-50
+                       dark:bg-gray-800 dark:text-violet-500
+                       dark:hover:bg-white/8 dark:hover:text-white dark:hover:border-violet-500/30
+                       hover:-translate-y-0.5 active:scale-[.97]">
+          Let's Talk
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ── RIGHT ── -->
+    <div class="order-1 md:order-2 flex flex-col items-center gap-6">
+
+      <!-- Avatar -->
+      <div class="relative w-52 h-52">
+
+        <!-- Spinning ring -->
+        <div class="absolute -inset-1.5 rounded-full animate-spin-slow
+                    bg-[conic-gradient(from_0deg,#7c3aed,#f472b6,#60a5fa,#7c3aed)]">
+        </div>
+
+        <!-- Inner circle -->
+        <div class="absolute inset-1 rounded-full z-10
+                    flex flex-col items-center justify-center gap-1
+                    bg-slate-100 dark:bg-[#0f0818]
+                    
+                    transition-colors duration-500">
+          <span class="text-6xl animate-float">👨‍💻</span>
+          <span class="text-xs font-semibold
+                       text-violet-600 dark:text-violet-400
+                       transition-colors duration-500">
+            Ajay Kumar
+          </span>
+        </div>
+
+        <!-- Floating badges -->
+        <div class="absolute inset-0 pointer-events-none">
+          <span class="absolute -top-2.5 -left-5 px-2.5 py-1 rounded-full
+                       text-[11px] font-semibold animate-badge-float
+                       bg-violet-100  border-violet-300 text-violet-600
+                       dark:bg-violet-500/20  dark:text-violet-400
+                       transition-colors duration-500 [animation-delay:0s]">
+            Angular
+          </span>
+          <span class="absolute top-5 -right-7 px-2.5 py-1 rounded-full
+                       text-[11px] font-semibold animate-badge-float
+                       bg-pink-100  border-pink-300 text-pink-600
+                       dark:bg-pink-500/20  dark:text-pink-400
+                       transition-colors duration-500 [animation-delay:1s]">
+            React
+          </span>
+          <span class="absolute bottom-2 -left-6 px-2.5 py-1 rounded-full
+                       text-[11px] font-semibold animate-badge-float
+                       bg-blue-100  border-blue-300 text-blue-600
+                       dark:bg-blue-500/20  dark:text-blue-400
+                       transition-colors duration-500 [animation-delay:2s]">
+            Node.js
+          </span>
+          <span class="absolute -bottom-1 -right-5 px-2.5 py-1 rounded-full
+                       text-[11px] font-semibold animate-badge-float
+                       bg-teal-100  border-teal-300 text-teal-600
+                       dark:bg-teal-500/20  dark:text-teal-400
+                       transition-colors duration-500 [animation-delay:1.5s]">
+            Next.js
+          </span>
+        </div>
+      </div>
+
+      <!-- Skill Bars -->
+      <div class="w-full p-5 rounded-2xl
+                   transition-colors duration-500
+                  bg-slate-50 
+                   dark:bg-gray-800 dark:text-violet-500">
+
+        <div *ngFor="let s of skills; let last = last"
+             [class.mb-3.5]="!last">
+          <div class="flex justify-between mb-1.5">
+            <span class="text-[12.5px] font-semibold
+                         text-slate-600 dark:text-white/70
+                         transition-colors duration-500">
+              {{ s.name }}
+            </span>
+            <span class="text-[12px] font-semibold text-violet-500 dark:text-violet-400">
+              {{ s.pct }}%
+            </span>
+          </div>
+          <div class="h-1.5 rounded-full overflow-hidden
+                      bg-slate-200  dark:bg-gray-800 dark:text-violet-500
+                      transition-colors duration-500">
+            <div class="h-full rounded-full transition-[width] duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
+                 [style.width]="animated ? s.pct + '%' : '0%'"
+                 [ngClass]="{
+                   'bg-gradient-to-r from-violet-600 to-violet-400': s.color === 'bf1',
+                   'bg-gradient-to-r from-pink-600 to-pink-400':     s.color === 'bf2',
+                   'bg-gradient-to-r from-blue-700 to-blue-400':     s.color === 'bf3',
+                   'bg-gradient-to-r from-teal-700 to-teal-400':     s.color === 'bf4'
+                 }">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

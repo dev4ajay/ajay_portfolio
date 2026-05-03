@@ -1,0 +1,59 @@
+/* projects.component.css
+   Custom keyframe animations only.
+   All layout / colors / spacing → Tailwind utility classes in the HTML.
+*/
+
+/* ── Fade-up entries ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.65s ease forwards;
+}
+
+.animate-fade-up-delay3 {
+  opacity: 0;
+  animation: fadeUp 0.65s 0.55s ease forwards;
+}
+
+/* Staggered cards — delay driven by [style.animation-delay] in template */
+.animate-fade-up-stagger {
+  opacity: 0;
+  animation: fadeUp 0.65s ease forwards;
+}
+
+/* ── Ambient orb drifts ── */
+@keyframes orb1 {
+  0%, 100% { transform: translate(0,  0)   scale(1);    }
+  50%       { transform: translate(28px, -20px) scale(1.08); }
+}
+@keyframes orb2 {
+  0%, 100% { transform: translate(0,  0)    scale(1);    }
+  50%       { transform: translate(-24px, 18px) scale(1.07); }
+}
+@keyframes orb3 {
+  0%, 100% { transform: translate(0, 0)   scale(1);    }
+  50%       { transform: translate(20px, -14px) scale(1.06); }
+}
+@keyframes orb4 {
+  0%, 100% { transform: translate(0, 0)    scale(1);    }
+  50%       { transform: translate(-16px, 22px) scale(1.09); }
+}
+
+.animate-orb-1 { animation: orb1 11s ease-in-out infinite; }
+.animate-orb-2 { animation: orb2  9s ease-in-out infinite reverse; }
+.animate-orb-3 { animation: orb3 13s ease-in-out infinite 2s; }
+.animate-orb-4 { animation: orb4  8s ease-in-out infinite 1s reverse; }
+
+/* ── Gradient shift (text + border + button) ── */
+@keyframes gradientX {
+  0%, 100% { background-position: 0%   50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradientX 5s ease infinite;
+}

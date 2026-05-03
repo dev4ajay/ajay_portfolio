@@ -1,0 +1,59 @@
+/* experience.component.css
+   Custom keyframe animations only.
+   All layout / colors / spacing → Tailwind utility classes in the HTML.
+*/
+
+/* ── Fade-up base ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.65s ease forwards;
+}
+
+/* Staggered cards — delay set via [style.animation-delay] in template */
+.animate-fade-up-stagger {
+  opacity: 0;
+  animation: fadeUp 0.65s ease forwards;
+}
+
+/* ── Ambient orb drifts ── */
+@keyframes orb1 {
+  0%, 100% { transform: translate(0, 0)       scale(1);    }
+  50%       { transform: translate(28px, -20px) scale(1.08); }
+}
+@keyframes orb2 {
+  0%, 100% { transform: translate(0, 0)        scale(1);    }
+  50%       { transform: translate(-22px, 18px) scale(1.07); }
+}
+@keyframes orb3 {
+  0%, 100% { transform: translate(0, 0)       scale(1);    }
+  50%       { transform: translate(18px, -14px) scale(1.06); }
+}
+
+.animate-orb-1 { animation: orb1 11s ease-in-out infinite; }
+.animate-orb-2 { animation: orb2  9s ease-in-out infinite reverse; }
+.animate-orb-3 { animation: orb3 13s ease-in-out infinite 2s; }
+
+/* ── Gradient shift ── */
+@keyframes gradientX {
+  0%, 100% { background-position: 0%   50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradientX 5s ease infinite;
+}
+
+/* ── Dot pulse ring ── */
+@keyframes pingSlow {
+  0%        { transform: scale(1);   opacity: 0.4; }
+  70%, 100% { transform: scale(2.2); opacity: 0;   }
+}
+
+.animate-ping-slow {
+  animation: pingSlow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}

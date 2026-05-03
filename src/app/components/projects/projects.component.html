@@ -1,0 +1,215 @@
+<section
+  id="projects"
+  class="relative min-h-screen py-24 px-6 overflow-hidden
+         bg-slate-50 dark:bg-[#07070f]
+         transition-colors duration-500"
+>
+
+  <!-- ── Animated Background Orbs ── -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full
+                bg-violet-400 opacity-10 dark:opacity-20
+                blur-[110px] animate-orb-1"></div>
+    <div class="absolute top-1/3 -right-28 w-80 h-80 rounded-full
+                bg-pink-400 opacity-10 dark:opacity-20
+                blur-[100px] animate-orb-2"></div>
+    <div class="absolute -bottom-24 left-1/3 w-72 h-72 rounded-full
+                bg-teal-400 opacity-8 dark:opacity-15
+                blur-[90px] animate-orb-3"></div>
+    <div class="absolute top-2/3 left-1/4 w-56 h-56 rounded-full
+                bg-amber-400 opacity-6 dark:opacity-10
+                blur-[80px] animate-orb-4"></div>
+  </div>
+
+  <!-- ── Dot Grid Pattern ── -->
+  <div class="pointer-events-none absolute inset-0
+              opacity-[0.025] dark:opacity-[0.055]
+              [background-image:radial-gradient(circle,#6C63FF_1px,transparent_1px)]
+              [background-size:30px_30px]">
+  </div>
+
+  <!-- ── Content ── -->
+  <div class="relative z-10 max-w-7xl mx-auto">
+
+    <!-- ── Section Heading ── -->
+    <div class="text-center mb-16 animate-fade-up">
+
+      <span class="inline-block mb-4 px-5 py-1.5 rounded-full text-xs font-bold
+                   uppercase tracking-widest
+                   bg-violet-100 text-violet-700 border border-violet-200
+                   dark:bg-violet-500/10 dark:text-violet-300 dark:border-violet-500/30
+                   transition-colors duration-500">
+        ✦ My Work
+      </span>
+
+      <h2 class="text-4xl md:text-5xl font-black
+                 bg-gradient-to-r from-violet-600 via-pink-500 to-teal-500
+                 dark:from-violet-400 dark:via-pink-400 dark:to-teal-300
+                 bg-clip-text text-transparent
+                 animate-gradient-x leading-tight">
+        Featured Projects
+      </h2>
+
+      <p class="mt-3 text-sm text-slate-500 dark:text-slate-400
+                max-w-md mx-auto transition-colors duration-500">
+        Real-world applications built with modern technologies 🚀
+      </p>
+
+      <!-- Animated underline -->
+      <div class="mt-4 mx-auto w-24 h-1 rounded-full
+                  bg-gradient-to-r from-violet-500 via-pink-500 to-teal-400
+                  animate-gradient-x">
+      </div>
+    </div>
+
+    <!-- ── Projects Grid ── -->
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+
+      <ng-container *ngFor="let project of projects; let i = index">
+        <div
+          class="group relative rounded-3xl overflow-hidden cursor-pointer
+                 bg-white border border-slate-200/80
+                 dark:bg-white/[0.03] dark:border-white/[0.08]
+                 shadow-lg shadow-slate-100
+                 dark:shadow-black/30
+                 hover:shadow-2xl hover:shadow-violet-200/50
+                 dark:hover:shadow-violet-900/30
+                 hover:-translate-y-2 hover:border-violet-300/60
+                 dark:hover:border-violet-500/30
+                 transition-all duration-500 ease-out
+                 backdrop-blur-sm"
+          [style.animation-delay]="i * 120 + 'ms'"
+          [class]="'animate-fade-up-stagger'"
+        >
+
+          <!-- Card gradient top bar -->
+          <div class="h-1 w-full transition-all duration-500
+                      group-hover:h-1.5"
+               [ngStyle]="{'background': project.gradient}">
+          </div>
+
+          <!-- Glow overlay on hover -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100
+                      transition-opacity duration-500 pointer-events-none rounded-3xl"
+               [ngStyle]="{'background': project.glowBg}">
+          </div>
+
+          <!-- Card Body -->
+          <div class="relative z-10 p-7 flex flex-col h-full">
+
+            <!-- Top row: icon + number -->
+            <div class="flex items-start justify-between mb-5">
+
+              <!-- Project icon -->
+              <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl
+                          shadow-sm border border-slate-100
+                          dark:border-white/10
+                          group-hover:scale-110 group-hover:rotate-3
+                          transition-transform duration-400"
+                   [ngStyle]="{'background': project.iconBg}">
+                {{ project.icon }}
+              </div>
+
+              <!-- Project number -->
+              <span class="text-5xl font-black leading-none select-none
+                           text-slate-100 dark:text-white/5
+                           group-hover:text-slate-200 dark:group-hover:text-white/10
+                           transition-colors duration-500">
+                {{ (i + 1).toString().padStart(2, '0') }}
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-lg font-black text-slate-800 dark:text-white mb-2
+                       group-hover:text-violet-700 dark:group-hover:text-violet-300
+                       transition-colors duration-300">
+              {{ project.title }}
+            </h3>
+
+            <!-- Description -->
+            <p class="text-sm text-slate-500 dark:text-slate-400
+                      leading-relaxed flex-1 transition-colors duration-500">
+              {{ project.description }}
+            </p>
+
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span *ngFor="let tag of project.tags"
+                    class="px-3 py-1 rounded-full text-xs font-semibold
+                           bg-slate-100 text-slate-500 border border-slate-200
+                           dark:bg-white/5 dark:text-slate-400 dark:border-white/10
+                           group-hover:border-violet-200 group-hover:text-violet-600
+                           dark:group-hover:border-violet-500/30 dark:group-hover:text-violet-300
+                           transition-all duration-300">
+                {{ tag }}
+              </span>
+            </div>
+
+            <!-- Divider -->
+            <div class="my-5 h-px
+                        bg-slate-100 dark:bg-white/5
+                        group-hover:bg-violet-100 dark:group-hover:bg-violet-500/10
+                        transition-colors duration-500">
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex gap-3">
+
+              <!-- Live Demo -->
+              <a [href]="project.liveUrl"
+                 class="flex-1 flex items-center justify-center gap-2
+                        py-2.5 rounded-xl text-xs font-bold tracking-wide
+                        text-white
+                        transition-all duration-300
+                        hover:opacity-90 hover:scale-[1.02] active:scale-[.97]
+                        shadow-md"
+                 [ngStyle]="{'background': project.gradient}">
+                <span>Live Demo</span>
+                <span class="group-hover:translate-x-0.5 transition-transform duration-200
+                             inline-block">↗</span>
+              </a>
+
+              <!-- Code -->
+              <a [href]="project.codeUrl"
+                 class="flex items-center justify-center gap-2
+                        px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide
+                        border border-slate-200 text-slate-600
+                        dark:border-white/10 dark:text-slate-400
+                        hover:border-violet-400 hover:text-violet-600
+                        dark:hover:border-violet-500/50 dark:hover:text-violet-300
+                        hover:bg-violet-50 dark:hover:bg-violet-500/10
+                        transition-all duration-300 hover:scale-[1.02] active:scale-[.97]">
+                <span>🐙</span>
+                Code
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+
+    <!-- ── View All Button ── -->
+    <div class="text-center mt-14 animate-fade-up-delay3">
+      <a href="#"
+         class="group inline-flex items-center gap-3
+                px-8 py-4 rounded-2xl text-sm font-bold tracking-wide
+                text-white
+                bg-gradient-to-r from-violet-600 via-pink-500 to-teal-500
+                animate-gradient-x
+                hover:-translate-y-1 hover:shadow-2xl hover:shadow-violet-500/40
+                dark:hover:shadow-violet-500/25
+                active:scale-[.97]
+                transition-all duration-300">
+        View All Projects
+        <span class="group-hover:translate-x-1.5 group-hover:-rotate-45
+                     transition-transform duration-300 inline-block text-base">
+          →
+        </span>
+      </a>
+    </div>
+
+  </div>
+</section>

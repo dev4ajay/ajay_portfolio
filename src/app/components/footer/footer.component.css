@@ -1,0 +1,69 @@
+/* footer.component.css
+   Custom keyframe animations only.
+   All colors/spacing/layout → Tailwind utility classes in HTML.
+*/
+
+/* ── Fade up entries ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+.animate-fade-up-delay {
+  opacity: 0;
+  animation: fadeUp 0.6s 0.15s ease forwards;
+}
+.animate-fade-up-delay2 {
+  opacity: 0;
+  animation: fadeUp 0.6s 0.28s ease forwards;
+}
+.animate-fade-up-delay3 {
+  opacity: 0;
+  animation: fadeUp 0.6s 0.4s ease forwards;
+}
+
+/* ── Orb ambient drifts ── */
+@keyframes orb1 {
+  0%, 100% { transform: translate(0, 0)    scale(1);    }
+  50%       { transform: translate(30px, -20px) scale(1.08); }
+}
+@keyframes orb2 {
+  0%, 100% { transform: translate(0, 0)    scale(1);    }
+  50%       { transform: translate(-22px, 16px) scale(1.06); }
+}
+@keyframes orb3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);    }
+  50%       { transform: translate(-50%, -50%) scale(1.12); }
+}
+
+.animate-orb-1 { animation: orb1 10s ease-in-out infinite; }
+.animate-orb-2 { animation: orb2  8s ease-in-out infinite reverse; }
+.animate-orb-3 { animation: orb3 14s ease-in-out infinite 3s; }
+
+/* ── Gradient text / border shift ── */
+@keyframes gradientX {
+  0%, 100% { background-position: 0%   50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradientX 5s ease infinite;
+}
+
+/* ── Heartbeat ── */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1);    }
+  14%       { transform: scale(1.3);  }
+  28%       { transform: scale(1);    }
+  42%       { transform: scale(1.2);  }
+  70%       { transform: scale(1);    }
+}
+
+.animate-heartbeat {
+  display: inline-block;
+  animation: heartbeat 1.6s ease infinite;
+}
